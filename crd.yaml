@@ -20,18 +20,23 @@ spec:
             spec:
               type: object
               properties:
-                image:
+                applicationname:
                   type: string
-                replicas:
-                  type: integer
-                port:
-                  type: integer
-              required: ["image", "replicas", "port"]
+                repourl:
+                  type: string
+                clustername:
+                  type: string
+              required: 
+                - applicationname
+                - repourl
+                - clustername
             status:
               type: object
               properties:
                 state:
                   type: string
                   enum:
+                    - Pending
                     - Running
-                    - Stopped
+                    - Failed
+                    - Succeeded
